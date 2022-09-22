@@ -1,0 +1,166 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/black.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h2>TDD</h2>
+					<p>(Test-Driven Development)</p>
+				</section>
+				<section>
+
+					<img src="img/testing_strip.jpg" width="800" height="550">
+				</section>
+				<section>
+					<h2>¿QUE ES TDD?</h2>
+					El test-driven development es una metodología de diseño de software que se basa en test o pruebas para guiar el proceso. Al contrario de lo que ocurre en metodologías que posponen los test a un punto ulterior, los casos de prueba en TDD se realizan al inicio del proceso de diseño
+				</section>
+				<section>
+					<h2>UN POCO DE HISTORIA</h2>
+					<img class="fragment" data-fragment-index="1" src="img/kent beck.jpeg" width="450" height="300">
+					<p class="fragment" data-fragment-index="2">
+						El TDD fue desarrollado por Kent Beck a finales de la década de los 90 y forma parte de la metodología extreme programming.
+					</p>
+				</section>
+				<section>
+					<h2>Ventajas</h2>
+					<ul>
+						<li>
+							El software resultante es de alta calidad y tiene menos bugs.
+						</li>
+						<li>
+							La arquitectura del sistema y el código productivo son fáciles de comprender y están bien estructurados.
+						</li>
+						<li>
+							La identificación de fallos es rápida y el trabajo de mantenimiento se reduce.
+						</li>
+						<li>
+							La eliminación de redundancias en el código evita el overengineering, es decir, la complejidad innecesaria del producto.
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h2>Inconvenientes</h2>
+					<ul>
+						<li>
+							Requiere conocimientos previos de codificación y mayor tiempo de aprendizaje.
+						</li>
+						<li>
+							Solo comprueba la adecuación del código, no la funcionalidad del software.
+						</li>
+						<li>
+							En algunos casos ha de ir acompañado de otros métodos de prueba.
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h2>Limitaciones</h2>
+					<ul>
+						<li>
+							Interfaces Gráfica de usuario (GUIs), aunque hay soluciones parciales propuestas.
+						</li>
+						<li>
+							Objetos distribuidos, aunque los objetos simulados (MockObjects) pueden ayudar.
+						</li>
+						<li>
+							Bases de datos. Hacer pruebas de código que trabaja con base de datos es complejo. 
+							Todo esto hace que la prueba sea costosa de codificar, aparte de tener 
+							disponible una base de datos que se pueda modificar libremente. Además, la prueba 
+							puede tardar demasiado en ejecutarse.
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h2>Las tres leyes del tdd</h2>
+					<ul>
+						<li>
+							No escribirás código de producción sin antes escribir un test que falle.
+						</li>
+						<li>
+							No escribirás más de un test unitario suficiente para fallar (y no compilar es fallar).
+						</li>
+						<li>
+							No escribirás más código del necesario para hacer pasar el test.
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h2>Ciclo Red-GREEN-REFACTOR</h2>
+					<img src="img/1_tZSwCigaTaJdovyWlp5uBQ.jpeg" width="700" height="400">
+				</section>
+				<section>
+					<h2>Estrategias de implementación, de rojo a verde</h2>
+					<p class="fragment" data-fragment-index="1">Implementación falsa</p>
+					<p class="fragment" data-fragment-index="2">Triangular</p>
+					<p class="fragment" data-fragment-index="3">Implementación obvia</p>
+				</section>
+				<section>
+					<p style="color: blueviolet;">Go to example...</p>
+				</section>
+				<section>
+					<h3>Tangamandapio city</h3>
+					<p>
+						El alcalde de Tangamandapio, pensando en el pueblo, ha 
+						definido las siguientes reglas para calcular cuanto 
+						tienen que pagar de impuesto salarial los trabajadores de la 
+						ciudad, las reglas son las siguientes:
+					</p>
+				</section>
+				<section>
+					<h3>Reglas</h3>
+					<ul style="font-size: 90%;">
+						<li>
+							Sí el salario es igual o esta por debajo de $500 
+							y tiene 60 o mas años debe pagar solo un 5% de impuestos 
+							base
+						</li>
+						<li>
+							Sí el salario es mayor $500 y menor o igual a $2.000, 
+							y su edad es igual o mayor a 18 años y menor o igual a 40 años, debe pagar solo 
+							un 30% de impuestos base
+						</li>
+						<li>
+							Sí el trabajador es mayor de 40 años y menor 60 años tiene que pagar un
+							10% de impuestos menos del impuesto base
+						</li>
+						<li style="font-size: 70%;">
+							Sí es amigo del alcalde, el impuesto base es 0%
+						</li>
+						<li>
+							Para todos los demás trabajadores el impuesto base es del 40%
+						</li>
+					</ul>
+				</section>
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>
